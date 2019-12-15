@@ -15,7 +15,7 @@ function TodoForm({ addTodo }) {
 
   return (
     <form className="todo-form" onSubmit={handleSubmit}>
-      <a> Enter new Todo item: </a>
+      <l> Enter new Todo item: </l>
       <input
         type="text"
         className="input"
