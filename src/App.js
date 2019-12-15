@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
-const Todo = ({ todo }) => <div className="todo">{todo.text}</div>;
+// const Todo = ({ todo }) => <div className="todo">{todo.text}</div>;
 
 function TodoForm({ addTodo }) {
   // Setting state
@@ -29,6 +29,17 @@ function TodoForm({ addTodo }) {
   );
 }
 
+function Todo({ todo, index, completeTodo }) {
+  return (
+    <div className="todo" style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
+      {todo.text}
+      <div>
+        <button onClick={() => completeTodo(index)}>Complete</button>
+      </div>
+    </div>
+  );
+}
+
 function App() {
 
   // SETTING STATE:
@@ -40,13 +51,22 @@ function App() {
     // of the component.
 
     // The array of objects is the beginnings of our state.
-    { text: "Learn React Hooks "},
-    { text: "Land at New Story" },
-    { text: "Build a todo app with hooks"}
+    { text: "Learn React Hooks ",
+      isCompleted: false},
+    { text: "Go buy milk", 
+      isCompleted: false },
+    { text: "Build a todo app with hooks",
+      isCompleted: false}
   ]);
 
   const addTodo = text => {
     const newTodos = [...todos, { text }];
+    setTodos(newTodos);
+  };
+
+  const completeTodo = index => {
+    const newTodos = [...todos];
+    newTodos[index].isCompleted = true;
     setTodos(newTodos);
   };
 
@@ -59,6 +79,7 @@ function App() {
             key={index}
             index={index}
             todo={todo}
+            completeTodo={completeTodo}
           />
         ))}
       </div>
