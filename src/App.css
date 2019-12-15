@@ -3,6 +3,8 @@
   background: #209cee;
   padding: 30px;
   height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 .App-logo {
