@@ -30,3 +30,10 @@ code {
   align-items: center;
   justify-content: space-between;
 }
+
+.todo-form {
+  background: #e8e8e8;
+  border-radius: 4px;
+  padding: 5px;
+  max-width: 400px;
+}
